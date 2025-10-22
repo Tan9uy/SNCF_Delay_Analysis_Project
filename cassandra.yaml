@@ -1,0 +1,12 @@
+fullnameOverride: cassandra
+dbUser:
+  user: cassandra
+  password: "DB_PASSWORD"
+metrics:
+  enabled: true
+  serviceMonitor:
+    enabled: true
+    namespace: monitoring
+    jobLabel: cassandra
+persistence:
+  storageClass: "csi-gce-pd"

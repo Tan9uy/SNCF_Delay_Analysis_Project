@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: python-service
+  namespace: python-consumer
+  labels:
+    app: python-consumer
+spec:
+  selector:
+    app: python-consumer
+  ports:
+    - name: web-python
+      port: 5000

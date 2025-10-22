@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: node-service
+  namespace: node-producer
+  labels:
+    app: node-producer
+spec:
+  selector:
+    app: node-producer
+  ports:
+    - name: web-node
+      port: 8080

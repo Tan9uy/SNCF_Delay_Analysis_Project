@@ -1,0 +1,15 @@
+fullnameOverride: kafka
+metrics:
+  kafka:
+    enabled: true
+  jmx:
+    enabled: true
+  serviceMonitor:
+    enabled: true
+    namespace: monitoring
+    jobLabel: kafka
+persistence:
+  storageClass: "csi-gce-pd"
+zookeeper:
+  persistence:
+    storageClass: "csi-gce-pd"

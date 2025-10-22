@@ -1,0 +1,71 @@
+alertmanager:
+  enable: false
+  fullnameOverride: alertmanager
+
+kubeletService:
+  enable: true
+  fullnameOverride: kubelet-service
+
+grafana:
+  enable: true
+  fullnameOverride: grafana
+  adminPassword: admin
+  dashboards:
+    default:
+      custom-dashboard-producer-consumer:
+        file: ./dashboards/producer-consumer.json
+      custom-dashboard-grafana:
+        file: ./dashboards/grafana.json
+  service:
+    port: 3000
+
+prometheus:
+  enable: true
+  fullnameOverride: prometheus
+  prometheusSpec:
+    podMonitorSelectorNilUsesHelmValues: false
+    serviceMonitorSelectorNilUsesHelmValues: false
+
+prometheusOperator:
+  enable: true
+  fullnameOverride: prometheus-operator
+
+prometheus-node-exporter:
+  enable: true
+  fullnameOverride: prometheus-node-exporter
+
+kube-state-metrics:
+  enable: true
+  fullnameOverride: kube-state-metrics
+
+kubeScheduler:
+  enable: true
+  fullnameOverride: kube-scheduler
+
+kubeEtcd:
+  enable: true
+  fullnameOverride: kube-etcd
+
+kubeDns:
+  enable: false
+  fullnameOverride: kube-dns
+
+coreDns:
+  enable: true
+  fullnameOverride: core-dns
+
+kubeControllerManager:
+  enable: true
+  fullnameOverride: kube-controller-manager
+
+kubelet:
+  enable: true
+  fullnameOverride: kebelet
+
+kubeApiServer:
+  enable: true
+  fullnameOverride: kube-api-server
+
+kubeProxy:
+  enable: false
+  fullnameOverride: kubeProxy

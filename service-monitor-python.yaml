@@ -1,0 +1,13 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: python-consumer
+  namespace: python-consumer
+  labels:
+    team: frontend
+spec:
+  selector:
+    matchLabels:
+      app: python-consumer
+  endpoints:
+    - port: web-python

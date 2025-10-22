@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-consumer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-consumer
+  template:
+    metadata:
+      labels:
+        app: python-consumer
+    spec:
+      containers:
+        - name: python-consumer
+          image: registry.gitlab.com/sdtd-3/sdtd/python-consumer:master
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+          env:
+            - name: DB_HOST
+              value: "cassandra.cassandra.svc.cluster.local"
+            - name: DB_PORT
+              value: "9042"
+            - name: KAFKA_HOST
+              value: "kafka.kafka.svc.cluster.local"
+            - name: KAFKA_PORT
+              value: "9092"
+            - name: KAFKA_TOPIC
+              value: "disruption"
+            - name: DB_PASSWORD
+              value: "DB_PASSWORD"
+            - name: DB_USERNAME
+              value: "cassandra"
+            - name: "BENCHMARK_ENABLE"
+              value: "0"
+      imagePullSecrets:
+        - name: gitlab-registry-secret

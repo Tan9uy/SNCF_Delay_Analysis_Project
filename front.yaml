@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: front
+  template:
+    metadata:
+      labels:
+        app: front
+    spec:
+      containers:
+        - name: front
+          image: registry.gitlab.com/sdtd-3/sdtd/front:master
+          imagePullPolicy: Always
+          env:
+            - name: DB_HOST
+              value: "cassandra.cassandra.svc.cluster.local"
+            - name: DB_PORT
+              value: "9042"
+            - name: DB_PASSWORD
+              value: "DB_PASSWORD"
+            - name: DB_USERNAME
+              value: "cassandra"
+      imagePullSecrets:
+        - name: gitlab-registry-secret

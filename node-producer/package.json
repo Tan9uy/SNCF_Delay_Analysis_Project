@@ -1,0 +1,24 @@
+{
+  "name": "producer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.ensimag.fr/projet-sdtd/development.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "kafka-node": "^5.0.0",
+    "moment": "^2.29.4",
+    "node-fetch": "^3.2.10",
+    "prom-client": "^14.1.1"
+  }
+}
